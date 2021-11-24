@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      
+    </head>
+    <style>
+      body{
+        background-color: rgb(83, 82, 82);
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+  overflow: hidden;
+  background-color:black;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: rgb(221, 221, 221);
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #db0707;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+    button 
+    {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #6aac8b;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+button:hover {background-color: #ebe9e9}
+
+button:active {
+  background-color: #8e3e76;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+   
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgb(206, 219, 214);
+    margin-top: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #0c0b0b;
+    text-align: left;
+    padding: 8px;
+    
+  }
+  
+  tr:nth-child(even) {
+    background-color: #a2afa9;
+  }
+  h1
+  {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  </style>
+  </head>
+  <body>
+
+  <div class="topnav">
+      <a class="active" href="#home">MARVEL</a>
+      <div class="topnav-right">
+        <a href="{% url 'home'%}">Home</a>
+        <a href="{% url 'display_emp' %}">Employee</a>
+        <a href="{% url 'display_bill' %}">Bill</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>  
+<center>
+  <h1>Billing Management</h1>
+</center>
+
+<button type="button">
+  <a href="{% url 'add_bill' %}">Add Bill</a>
+</button>
+
+<table>
+  <tr>
+    <th>Order Date</th>
+    <th>Order Serial</th>
+    <th>Amount</th>
+    <th>Bill Status</th>
+  </tr>
+
+
+  {% for bill in bill %}
+  <tr>
+    <td>{{bill.Order_or_Date}}</td>
+    <td>{{bill.Order_or_Serial}}</td>
+    <td>{{bill.Amount}}</td>
+    <td>{{bill.Bill_or_Status}}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+</body>
+</html>
